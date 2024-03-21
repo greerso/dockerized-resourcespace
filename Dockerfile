@@ -38,11 +38,8 @@ RUN apt-get update && apt-get install -y \
         exiftool \
         antiword \
         xpdf \
-        libldap-2.4-2 \
-        libcurl3 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
 # Copy the entrypoint script into the container and make it executable
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
