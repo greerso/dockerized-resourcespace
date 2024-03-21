@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
         libzip-dev \
         libxml2-dev \
         libcurl4-openssl-dev \
-        libonig-dev \  # Add this line to install the oniguruma library
+        libonig-dev \
         gettext-base
 
 # Configure and install PHP extensions recommended for ResourceSpace
