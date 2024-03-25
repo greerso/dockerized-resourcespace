@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  resourcespace:
+    build: .
+    volumes:
+      - resourcespace-data:/var/www/html
+      - ./path/to/your/config.php:/var/www/html/resourcespace/include/config.php
+    networks:
+      - resourcespace-network
+
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    networks:
+      - resourcespace-network
+
+networks:
+  resourcespace-network:
+    driver: bridge
+
+volumes:
+  mariadb-data:
+  resourcespace-data:
