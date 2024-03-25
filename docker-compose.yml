@@ -4,8 +4,10 @@ services:
   resourcespace:
     image: ${RESOURCESPACE_IMAGE}
     volumes:
-      - resourcespace-data:/var/www/html
-      - ./path/to/your/config.php:/var/www/html/resourcespace/include/config.php
+      - ./resourcespace/config.php:/var/www/html/include/config.php
+      - ./resourcespace/filestore:/var/www/html/filestore
+      # Add plugins here
+      # - ./my-plugin:/var/www/html/plugins/my-plugin
     networks:
       - resourcespace-network
 
